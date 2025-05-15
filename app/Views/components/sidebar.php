@@ -29,6 +29,20 @@
         <?php
         }
         ?>
+
+        <?php
+        if (session()->get('role') == 'admin') {
+        ?>
+            <li class="nav-item">
+                <a class="nav-link <?php echo (uri_string() == 'profile') ? "" : "collapsed" ?>" href="profile">
+                    <i class="bi bi-emoji-heart-eyes-fill"></i>
+                    <span>Profile</span>
+                </a>
+            </li><!-- End Produk Nav -->
+        <?php
+        }
+        ?>
+
     </ul>
 
 </aside><!-- End Sidebar-->
