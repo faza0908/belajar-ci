@@ -1,6 +1,5 @@
 <?= $this->extend('layout') ?>
 <?= $this->section('content') ?>
-
 <!-- Table with stripped rows -->
 <div class="row">
     <?php foreach ($product as $key => $item) : ?>

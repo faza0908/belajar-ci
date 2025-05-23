@@ -5,12 +5,10 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
 
-use App\Models\UserModel;
+use App\Models\UserModel; 
 
 class AuthController extends BaseController
 {
-    protected $user;
-
     function __construct()
     {
         helper('form');
@@ -36,6 +34,7 @@ class AuthController extends BaseController
                         session()->set([
                             'username' => $dataUser['username'],
                             'role' => $dataUser['role'],
+                            'email' => $dataUser['email'],
                             'isLoggedIn' => TRUE
                         ]);
 
@@ -57,8 +56,6 @@ class AuthController extends BaseController
         return view('v_login');
     }
     
-
-
         public function logout()
     {
         session()->destroy();

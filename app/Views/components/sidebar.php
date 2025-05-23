@@ -16,7 +16,6 @@
                 <span>Keranjang</span>
             </a>
         </li><!-- End Keranjang Nav -->
-        
         <?php
         if (session()->get('role') == 'admin') {
         ?>
@@ -26,23 +25,16 @@
                     <span>Produk</span>
                 </a>
             </li><!-- End Produk Nav -->
-        <?php
-        }
-        ?>
 
-        <?php
-        if (session()->get('role') == 'admin') {
-        ?>
             <li class="nav-item">
-                <a class="nav-link <?php echo (uri_string() == 'profile') ? "" : "collapsed" ?>" href="profile">
-                    <i class="bi bi-emoji-heart-eyes-fill"></i>
-                    <span>Profile</span>
+                <a class="nav-link <?php echo (uri_string() == 'profil') ? "" : "collapsed" ?>" href="profil">
+                    <i class="bi bi-person"></i>
+                    <span>Profil</span>
                 </a>
-            </li><!-- End Produk Nav -->
+            </li><!-- End Profil Nav -->
         <?php
         }
         ?>
-
     </ul>
 
 </aside><!-- End Sidebar-->

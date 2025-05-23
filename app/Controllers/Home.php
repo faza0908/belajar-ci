@@ -7,13 +7,13 @@ use App\Models\ProductModel;
 class Home extends BaseController
 {
     protected $product;
+    
     function __construct()
     {
-        $this ->product = new ProductModel();
+        $this->product = new ProductModel();
     }
-    
-    
-    public function index(): string
+
+    public function index()
     {
         $product = $this->product->findAll();
         $data['product'] = $product;
