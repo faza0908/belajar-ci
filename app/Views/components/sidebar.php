@@ -34,7 +34,24 @@
             </li><!-- End Profil Nav -->
         <?php
         }
+            
         ?>
+        <li class="nav-item">
+            <a class="nav-link <?php echo (uri_string() == 'FAQ') ? "" : "collapsed" ?>" href="FAQ">
+                <i class="bi bi-question-circle"></i>
+                <span>FAQ</span>
+            </a>
+        </li><!-- End FAQ Nav -->
+        <?php
+        ?>
+
+        <li class="nav-item">
+        <a class="nav-link <?php echo (uri_string() == 'contact') ? "" : "collapsed" ?> collapsed " href="contact">
+          <i class="bi bi-envelope"></i>
+          <span>Contact</span>
+        </a>
+      </li><!-- End Contact Page Nav -->
+    
     </ul>
 
 </aside><!-- End Sidebar-->
