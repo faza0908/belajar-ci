@@ -35,5 +35,11 @@ $routes->post('buy', 'TransaksiController::buy', ['filter' => 'auth']);
 $routes->get('get-location', 'TransaksiController::getLocation', ['filter' => 'auth']);
 $routes->get('get-cost', 'TransaksiController::getCost', ['filter' => 'auth']);
 
+
+$routes->get('profil', 'ProfilController::index', ['filter' => 'auth']);
+
+$routes->get('history', 'Home::history', ['filter' => 'auth']);
 $routes->get('FAQ', 'FAQController::index', ['filter' => 'auth']);
 $routes->get('contact', 'ContactController::index', ['filter' => 'auth']);
+
+$routes->resource('api', ['controller' => 'apiController']);

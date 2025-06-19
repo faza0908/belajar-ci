@@ -16,12 +16,11 @@
         </div> 
         <div class="col-12">
             <label for="kelurahan" class="form-label">Kelurahan</label>
-            <select class= "form-control" id= "kelurahan" nama= "kelurahan" required></select>
-            
+             <select class="form-control" id="kelurahan" name="kelurahan" required></select>
         </div>
         <div class="col-12">
             <label for="layanan" class="form-label">Layanan</label>
-            <select class= "form-control" id= "layanan" nama= "layanan" required></select>
+             <select class="form-control" id="layanan" name="layanan" required></select>
         </div>
         <div class="col-12">
             <label for="ongkir" class="form-label">Ongkir</label>
@@ -78,12 +77,11 @@
     </div>
 </div>
 <?= $this->endSection() ?>
-
 <?= $this->section('script') ?>
 <script>
 $(document).ready(function() {
     var ongkir = 0;
-    var total = 0;
+    var total = 0; 
 
     hitungTotal();
 
@@ -111,37 +109,37 @@ $(document).ready(function() {
         cache: true
     },
     minimumInputLength: 3
-    });
+});
 
-    $("#kelurahan").on('change', function() {
+$("#kelurahan").on('change', function() {
     var id_kelurahan = $(this).val(); 
     $("#layanan").empty();
     ongkir = 0;
 
     $.ajax({
-            url: "<?= site_url('get-cost') ?>",
-            type: 'GET',
-            data: { 
-                'destination': id_kelurahan, 
-            },
-            dataType: 'json',
-            success: function(data) { 
-                data.forEach(function(item) {
-                    var text = item["description"] + " (" + item["service"] + ") : estimasi " + item["etd"] + "";
-                    $("#layanan").append($('<option>', {
-                        value: item["cost"],
-                        text: text 
-                    }));
-                });
-                hitungTotal(); 
-            },
-        });
+        url: "<?= site_url('get-cost') ?>",
+        type: 'GET',
+        data: { 
+            'destination': id_kelurahan, 
+        },
+        dataType: 'json',
+        success: function(data) { 
+            data.forEach(function(item) {
+                var text = item["description"] + " (" + item["service"] + ") : estimasi " + item["etd"] + "";
+                $("#layanan").append($('<option>', {
+                    value: item["cost"],
+                    text: text 
+                }));
+            });
+            hitungTotal(); 
+        },
     });
+});
 
-    $("#layanan").on('change', function() {
-        ongkir = parseInt($(this).val());
-        hitungTotal();
-    });  
+$("#layanan").on('change', function() {
+    ongkir = parseInt($(this).val());
+    hitungTotal();
+});  
 
     function hitungTotal() {
         total = ongkir + <?= $total ?>;

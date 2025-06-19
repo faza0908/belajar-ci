@@ -8,10 +8,10 @@ use App\Models\TransactionDetailModel;
 class TransaksiController extends BaseController
 {
     protected $cart;
-    protected $client;
-    protected $apiKey;
-    protected $transaction;
-    protected $transaction_detail;
+    protected$client;
+    protected$apikey;
+    protected$transaction;
+    protected$transaction_detail;
 
     function __construct()
     {
@@ -73,12 +73,12 @@ class TransaksiController extends BaseController
     }
 
     public function checkout()
-    {
-        $data['items'] = $this->cart->contents();
-        $data['total'] = $this->cart->total();
+{
+    $data['items'] = $this->cart->contents();
+    $data['total'] = $this->cart->total();
 
-        return view('v_checkout', $data);
-    }
+    return view('v_checkout', $data);
+}
 
     public function getLocation()
 {
@@ -137,7 +137,6 @@ public function getCost()
     $body = json_decode($response->getBody(), true); 
     return $this->response->setJSON($body['data']);
 }
-
 public function buy()
 {
     if ($this->request->getPost()) { 
